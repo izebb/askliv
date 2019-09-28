@@ -9,13 +9,12 @@ import 'react-dates/initialize'
 const Container = styled.div`
   background-color: #fff;
   width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px 50px;
+  max-width: 500px;
+  padding:  20px 50px 40px 50px;
   border-radius: 5px;
   box-sizing: border-box;
-  flex-direction: row;
-  margin-top: 180px;
+  flex-direction: column;
+  margin-top: 100px;
 
    .DateRangePickerInput__withBorder {
       border-radius: 5px;
@@ -42,22 +41,20 @@ const Container = styled.div`
 const InputWrapper = styled.div`
   margin-bottom: 20px;
   margin-right: 10px;
-  max-width: 250px;
   width: 100%;
 `
 
 const DateWrapper = styled(InputWrapper)`
   max-width: 100%;
 `
-
-
-const Caption  = styled.h1`
+const Caption  = styled.h2`
     margin-bottom: 10px;     
     margin-bottom: 40px;     
 `;
 
 const FormWrapper = styled.div`
   display: flex;
+  flex-direction: column;
 `
 
 export const DestinationsSearch = () => {
