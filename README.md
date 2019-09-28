@@ -1,3 +1,9 @@
+## AskLiv
+
+![AskLiv](logo.png)
+
+**Allow people to be more confident when planning a trip.**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
