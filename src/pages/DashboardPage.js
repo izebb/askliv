@@ -75,7 +75,7 @@ const Content = styled.div`
   margin: 20px auto;
 `
 
-const checklistComponent = () => {
+const ChecklistComponent = () => {
   return (
     <Checklist questionnaireId={'chronic_conditions'} />
   )
@@ -104,8 +104,8 @@ export const DashboardPage = ({match}) => {
       <Content>
         <Router>
           <Switch>
-            <Route exact path='/dashboard/checklist' component={checklistComponent} />
-            <Route exact path='/dashboard' component={checklistComponent} />
+            <Route exact path='/dashboard/checklist' component={ChecklistComponent} />
+            <Route exact path='/dashboard' component={ChecklistComponent} />
             </Switch>
         </Router>
       </Content>

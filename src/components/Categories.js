@@ -97,7 +97,7 @@ const iconmaps = {
   general_information: Information
 }
 
-export const Categories = withRouter(({ data, history }) => {
+export const Categories = withRouter(({ data = [], history }) => {
   const context = React.useContext(CategoriesContext)
   const [checked, setChecked] = React.useState()
 

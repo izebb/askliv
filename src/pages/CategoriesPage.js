@@ -34,7 +34,7 @@ export const CategoriesPage = () => {
   }, [])
   return (
     <Layout title="How can I support you?">
-        <Categories  />
+        <Categories data={categories}/>
     </Layout>
   )
 }
