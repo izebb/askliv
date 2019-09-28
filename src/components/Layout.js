@@ -11,13 +11,13 @@ const Heading = styled.h2`
 const SideBar = styled.div`
   position: fixed;
   height: 100%;
-  width: 40%;
+  width: 45%;
   top: 0;
   right: 0;
   background-color: #200080;
-  background: url('https://images.unsplash.com/photo-1569530593440-e48dc137f7d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80')  
+  background: url('https://images.unsplash.com/photo-1553962949-b4c63c45337c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80')  
   no-repeat fixed ;
-  background-position: 20%;
+  background-position: center;
   background-size: cover;
 
   padding: 50px 20px 20px 20px;
@@ -26,7 +26,7 @@ const SideBar = styled.div`
   justify-content: center;
 `
 const Image = styled.img`
-  width: 120px;
+  width: 110px;
   position: relative;
   z-index: 2;
   margin-bottom: 70px;
@@ -42,7 +42,7 @@ const Backdrop = styled.div`
 `
 
 const Container = styled.div`
-    width: 60%;
+    width: 55%;
     max-width: 960px;
     padding-right: 60px;
 `
