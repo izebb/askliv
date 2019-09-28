@@ -12,7 +12,7 @@ const categories = [
   {
     icon: Vaccination,
     title: 'Vaccination',
-    type: 'vaccination'
+    type: 'vaccination',
   },
   {
     icon: Pregnancy,
@@ -168,7 +168,6 @@ const BackgroundImg = styled.img`
 `
 
 const Button = styled.button`
-  margin-left: auto;
   background: #DDD;
   border-radius: 1em;
   font-size: 15px;
@@ -182,6 +181,19 @@ const TripDate = styled.div`
   text-align: center;
   margin-bottom: 50px;
 `
+
+const Circle = styled.div`
+  margin-right: 10px;
+  height: 10px;
+  width: 10px;
+  background-color: #dc3545;
+  border-radius: 50%;
+  display: inline-block;
+`
+
+const RightAlign = styled.div`
+  margin-left: auto;
+`
 ;
 
 
@@ -193,19 +205,21 @@ const Accordion = ({category}) => {
       <AccordionHeader>
         <BackgroundImg src={category.icon} />
         <AccordionHeaderTitle>{category.title}</AccordionHeaderTitle>
-        <Button>Mark as done</Button>
+        <RightAlign>
+          <Circle></Circle>
+          <Button>Mark as done</Button>
+        </RightAlign>
       </AccordionHeader>
       <AccordionBody>
-
-    <p>
-      Est cupidatat exercitation ad eiusmod proident. Aute labore velit ea aliquip veniam est Lorem tempor tempor mollit. Cillum veniam reprehenderit cupidatat aliquip.
-    </p>
-    <p>
-      Ad velit cillum pariatur ex cillum aliquip quis. Incididunt duis aliqua elit deserunt anim non non elit commodo nulla. Nisi pariatur est Lorem tempor mollit nisi proident aute exercitation consequat. Dolor non labore dolor eu aute esse irure magna fugiat. Cupidatat duis irure cillum adipisicing ea ullamco. Laboris proident nostrud minim consequat cillum.
-    </p>
-    <p>
-      Qui ullamco mollit enim enim commodo id. Laborum reprehenderit incididunt in consectetur irure deserunt voluptate labore duis. Velit Lorem nisi laboris amet sint laboris.
-    </p>
+          <p>
+            Est cupidatat exercitation ad eiusmod proident. Aute labore velit ea aliquip veniam est Lorem tempor tempor mollit. Cillum veniam reprehenderit cupidatat aliquip.
+          </p>
+          <p>
+            Ad velit cillum pariatur ex cillum aliquip quis. Incididunt duis aliqua elit deserunt anim non non elit commodo nulla. Nisi pariatur est Lorem tempor mollit nisi proident aute exercitation consequat. Dolor non labore dolor eu aute esse irure magna fugiat. Cupidatat duis irure cillum adipisicing ea ullamco. Laboris proident nostrud minim consequat cillum.
+          </p>
+          <p>
+            Qui ullamco mollit enim enim commodo id. Laborum reprehenderit incididunt in consectetur irure deserunt voluptate labore duis. Velit Lorem nisi laboris amet sint laboris.
+          </p>
       </AccordionBody>
     </AccordionWrapper>
   )
