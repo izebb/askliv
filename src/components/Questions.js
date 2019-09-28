@@ -57,6 +57,14 @@ export const Questions = withRouter(props => {
     })
   }, [])
 
+  const handleFinish = (category) => {
+    if(category === 'pregnancy')  {
+      setIsModalOpen(true);
+    }else {
+      props.history.push('/dashboard/checklist')
+    }
+  }
+
 
   if(!question) return null
 
@@ -77,7 +85,7 @@ export const Questions = withRouter(props => {
           )
         })}
         <ButtonWrapper>
-          <ButtonNext setIsModalOpen={setIsModalOpen} onClick={() => props.history.push('/dashboard/checklist') }>Finish</ButtonNext>
+          <ButtonNext  onClick={() => handleFinish(context.selectedCategory) }>Finish</ButtonNext>
         </ButtonWrapper>
       </QuestionsWrapper>
     </Container>
