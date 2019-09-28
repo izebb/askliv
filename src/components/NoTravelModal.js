@@ -35,7 +35,7 @@ export const NoTravelModal = (props) => {
         </StyledModalSelection>
         <ButtonWrapper>
             <ButtonClose onClick={props.setIsModalOpen}>Close</ButtonClose>
-            <ButtonNext setIsModalOpen={props.setIsModalOpen}>Next</ButtonNext>
+            <ButtonNext>Next</ButtonNext>
         </ButtonWrapper>
       </Modal>
     )

@@ -25,7 +25,7 @@ const Img = styled.img`
 
 export const ButtonNext = (props) => {
   return (
-    <Button onClick={() => props.setIsModalOpen(true)}>
+    <Button>
       <ButtonStyled>
         <span>{props.children}</span>
         <Img src={arrow} />
