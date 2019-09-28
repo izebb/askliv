@@ -1,7 +1,7 @@
 import { some } from 'lodash'
 
 import { client } from './client'
-import { serializeAllEntries } from './serializers'
+import { serializeAllEntries, serializeBloc } from './serializers'
 
 export const getContentfulResponse = async () => {
     try{
@@ -48,4 +48,28 @@ export const getQuestionnaire = (entries, catgegoryId) => {
         }
     })
     return serializedQuestionnaire
+}
+
+export const getAllChecklistEntries = (entries, questionnaireId=null) => {
+    if(questionnaireId === null) {
+        // Get all blocs
+         return entries.filter(entry => {
+             return entry.contentType === 'bloc'
+        })
+    } else {
+        const blocEntries = 
+            some(entries) &&
+            getAllChecklistEntries(entries).filter(entry => {
+            const id = entry.fields.questionnaire.fields.name
+            return questionnaireId === id
+        })
+
+        const blocs =
+            some(blocEntries) &&
+            blocEntries.map(bloc => {
+                return serializeBloc(bloc)
+        })
+
+        return blocs
+    }
 }

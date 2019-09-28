@@ -15,3 +15,16 @@ export const serializeAllEntries = (entries) => {
         })
     return serializedEntries
 }
+
+export const serializeBloc = (bloc) => {
+    const body = bloc.fields.body.content.map(bodyItem => {
+        return bodyItem.content[0].value
+    })
+
+    return {
+        'title': bloc.fields.title,
+        'body': body,
+        'important': bloc.fields.importance,
+        'type': bloc.fields.type
+    }
+}
