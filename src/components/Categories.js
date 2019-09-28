@@ -59,7 +59,7 @@ const Category = styled.div`
 
   ${({ isChecked }) =>
     isChecked && {
-      boxShadow: '0 0px 1px rgba(0, 0, 0, 0.02), 0 0 1px 2px #2edc2e',
+    boxShadow: '0 0px 1px rgb(56, 27, 87), 0 0 1px 2px #381b57',
       opacity: 1
     }}
 `
