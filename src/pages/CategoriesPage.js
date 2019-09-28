@@ -24,7 +24,7 @@ const Heading = styled.h2`
 `
 export const CategoriesPage = () => {
   return (
-    <Layout title="Select a category">
+    <Layout title="How can I support you?">
         <Categories  />
     </Layout>
   )

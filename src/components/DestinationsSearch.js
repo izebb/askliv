@@ -70,6 +70,10 @@ const FormWrapper = styled.div`
   flex-direction: column;
 `
 
+const StyledButton = styled(Button)`
+  background-color: #381b57;
+`
+
 const options = [
   { value: 'brasil', label: 'Brasil' },
   { value: 'south_africa', label: 'South africa' },
@@ -89,7 +93,7 @@ export const DestinationsSearch = withRouter(({history}) => {
 
   return (
     <Container>
-      <Caption>Enter your destination</Caption>
+      <Caption>Allow me to help you travel to...</Caption>
       <FormWrapper>
         <InputWrapper>
           <CreatableSelect
@@ -112,7 +116,7 @@ export const DestinationsSearch = withRouter(({history}) => {
             onDatesChange={({ startDate, endDate }) => setDate({ startDate, endDate })}
           />
         </DateWrapper>
-        <Button onClick={() => handleSearch()}>Search</Button>
+        <StyledButton onClick={() => handleSearch()}>Search</StyledButton>
       </FormWrapper>
     </Container>
   )

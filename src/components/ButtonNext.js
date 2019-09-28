@@ -23,13 +23,21 @@ const Img = styled.img`
   margin-left: 4px;
 `
 
+const MainButton = styled(Button)`
+  background-color: #381b57;
+
+  &:hover {
+    background-color: #746187;
+  }
+`
+
 export const ButtonNext = (props) => {
   return (
-    <Button>
+    <MainButton>
       <ButtonStyled>
         <span>{props.children}</span>
         <Img src={arrow} />
       </ButtonStyled>
-    </Button>
+    </MainButton>
   )
 }
