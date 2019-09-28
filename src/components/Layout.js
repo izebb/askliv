@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/purple_logo.png'
 
+import {Link} from 'react-router-dom';
+
 const width = 350;
 const Heading = styled.h2`
   font-weight: 600;
@@ -56,7 +58,9 @@ export const Layout = ({ children, title }) => {
       <>
     <Container>
       <Content>
-        <Image src={Logo} />
+        <Link to="/">
+          <Image src={Logo} />
+        </Link>
           {title  && <Heading>{title}</Heading>}
         {children}
       </Content>

@@ -5,18 +5,21 @@ import { HomePage } from './pages/HomePage';
 import { CategoriesPage } from './pages/CategoriesPage';
 import { QuestionairePage } from './pages/QuestionairePage';
 import { DashboardPage } from './pages/DashboardPage';
+import { AppProvider } from './context/AppContext';
 
 
 function App() {
   return (
     <div className="App">
-      <Router>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/categories" component={CategoriesPage} />
-          <Route exact path="/questionaire" component={QuestionairePage} />
-          <Route path="/dashboard/info" component={DashboardPage} />
-          <Route path="/dashboard/checklist" component={DashboardPage} />
-      </Router>
+      <AppProvider>
+        <Router>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/categories" component={CategoriesPage} />
+            <Route exact path="/questionaire" component={QuestionairePage} />
+            <Route path="/dashboard/info" component={DashboardPage} />
+            <Route path="/dashboard/checklist" component={DashboardPage} />
+        </Router>
+      </AppProvider>
     </div>
   );
 }
