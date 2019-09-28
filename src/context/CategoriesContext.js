@@ -7,7 +7,7 @@ export const CategoriesContext = React.createContext({
 })
 
 export const CategoriesProvider = ({ children }) => {
-  const [selectedCategory, setSelectedCategory] = React.useState('')
+  const [selectedCategory, setSelectedCategory] = React.useState(localStorage.getItem('CATEGORIES') || '')
 
   const handleSelectCategory = item => {
     setSelectedCategory(item)
@@ -18,7 +18,7 @@ export const CategoriesProvider = ({ children }) => {
     <CategoriesContext.Provider
       value={{
         setSelectedCategory: handleSelectCategory,
-        selectedCategory: localStorage.getItem('CATEGORIES') || ''
+        selectedCategory: selectedCategory
       }}>
       <SearchProvider>{children}</SearchProvider>
     </CategoriesContext.Provider>

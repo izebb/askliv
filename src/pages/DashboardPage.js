@@ -6,6 +6,7 @@ import Logo from '../assets/purple_logo.png';
 import { Checklist } from '../components/Checklist'
 import Vaccination from '../assets/vaccination.svg';
 import Pregnancy from '../assets/pregnancy_checklist.svg';
+import { CategoriesContext } from '../context/CategoriesContext';
 
 const height = 150;
 
@@ -76,8 +77,9 @@ const Content = styled.div`
 `
 
 const ChecklistComponent = () => {
+  const context = React.useContext(CategoriesContext)
   return (
-    <Checklist questionnaireId={'chronic_conditions'} />
+    <Checklist questionnaireId={context.selectedCategory} />
   )
 }
 
