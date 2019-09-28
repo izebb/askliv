@@ -15,7 +15,11 @@ const SideBar = styled.div`
   top: 0;
   right: 0;
   background-color: #200080;
-  background: url('https://images.unsplash.com/photo-1569530593440-e48dc137f7d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80');
+  background: url('https://images.unsplash.com/photo-1569530593440-e48dc137f7d0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80')  
+  no-repeat fixed ;
+  background-position: 20%;
+  background-size: cover;
+
   padding: 50px 20px 20px 20px;
   display: flex;
   align-items: flex-start;
