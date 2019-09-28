@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { useTransition, animated, config } from 'react-spring'
+import { Link } from 'react-router-dom'
 
 import logo from '../assets/white_logo.png'
 import { DestinationsSearch } from '../components/DestinationsSearch'
@@ -62,7 +63,9 @@ export const HomePage = () => {
     <Container>
       <Background />
       <Content>
-        <Image src={logo} />
+        <Link to="/">
+          <Image src={logo} />
+        </Link>
         <DestinationsSearch />
       </Content>
     </Container>

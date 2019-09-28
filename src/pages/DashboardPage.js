@@ -100,7 +100,9 @@ export const DashboardPage = () => {
     <>
       <Topbar>
         <LogoWrapper>
-          <LogoImg src={Logo} />
+          <Link to="/">
+            <LogoImg src={Logo} />
+          </Link>
         </LogoWrapper>
 
         <Navigation>
@@ -108,7 +110,7 @@ export const DashboardPage = () => {
             <StyledLink isActive to="/dashboard/checklist">Checklist</StyledLink>
           </List>
           <List>
-            <StyledLink to="/dashboard">Info</StyledLink>
+            <StyledLink to="/dashboard/info">Info</StyledLink>
           </List>
         </Navigation>
       </Topbar>
