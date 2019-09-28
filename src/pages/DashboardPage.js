@@ -94,6 +94,12 @@ const Content = styled.div`
   margin: 20px auto;
 `
 
+const Feedback = styled.div`
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+`
+
 export const DashboardPage = () => {
   return (
     <>
@@ -116,9 +122,12 @@ export const DashboardPage = () => {
           <Switch>
             <Route exact path='/dashboard/checklist' component={Checklist} />
             <Route exact path='/dashboard' component={Checklist} />
-            </Switch>
+          </Switch>
         </Router>
       </Content>
+      <Feedback>
+        <Button> ☎️ talk to a live agent</Button>
+      </Feedback>
     </>
   )
 }
