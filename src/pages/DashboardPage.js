@@ -4,9 +4,23 @@ import { Link, BrowserRouter as Router, Route,Switch } from 'react-router-dom'
 
 import Logo from '../assets/purple_logo.png';
 import { Checklist } from '../components/Checklist'
-import { getAllEntries } from '../utils/contentful/utils'
+import Vaccination from '../assets/vaccination.svg';
+import Pregnancy from '../assets/pregnancy_checklist.svg';
 
 const height = 150
+
+// const categories = [
+//   {
+//     icon: Vaccination,
+//     title: 'Vaccination',
+//     type: 'vaccination',
+//   },
+//   {
+//     icon: Pregnancy,
+//     title: 'Pregnancy',
+//     type: 'pregnancy'
+//   }
+// ]
 
 const Topbar = styled.nav`
   height: ${height}px;
@@ -67,16 +81,23 @@ const StyledLink = styled(Link)`
       opacity: 1
     }))}
   }
+
 `
 
 const Content = styled.div`
   padding-top: ${height + 10}px;
   max-width: 900px;
   margin: 20px auto;
-  
 `
 
+const checklistComponent = () => {
+  return (
+    <Checklist questionnaireId={'trust_safety'} />
+  )
+}
+
 export const DashboardPage = () => {
+
   return (
     <>
       <Topbar>
@@ -96,8 +117,8 @@ export const DashboardPage = () => {
       <Content>
         <Router>
           <Switch>
-            <Route exact path='/dashboard/checklist' component={Checklist} />
-            <Route exact path='/dashboard' component={Checklist} />
+            <Route exact path='/dashboard/checklist' component={checklistComponent} />
+            <Route exact path='/dashboard' component={checklistComponent} />
             </Switch>
         </Router>
       </Content>

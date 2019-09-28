@@ -11,7 +11,13 @@ const H1 = styled.h1`
   margin-bottom: 50px;
 `
 
-export const Checklist = () => {
+const TripDate = styled.div`
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 50px;
+`
+
+export const Checklist = (props) => {
     const [entries, setEntries] = React.useState([])
     React.useEffect(() => {
         getAllEntries()
@@ -19,18 +25,18 @@ export const Checklist = () => {
                 setEntries(response)
             })
     }, [])
-    const allBlocs = getAllChecklistEntries(entries, 'trust_safety') 
+    const allBlocs = getAllChecklistEntries(entries, props.questionnaireId) 
 
     const blocsElements = 
         some(allBlocs) &&
         allBlocs.map(bloc => {
             return <Accordion bloc={bloc}/>
         })
-    console.log(allBlocs)
 
     return (
         <>
             <H1>Get Ready for your trip to Malaysia ✈️</H1>
+            <TripDate>01.12.2019 - 21.12.2019</TripDate>
             {blocsElements}
         </>
     )

@@ -50,8 +50,30 @@ const VaccinationImg = styled.img`
     opacity: 0.12;
 `
 
+const BackgroundImg = styled.img`
+    width: 50px;
+    width: 110px;
+    left: -20px;
+    position: absolute;
+    bottom: -30px;
+    opacity: 0.12;
+`
+
 const StyledImg = styled.img`
     height: 300px;
+`
+
+const RightAlign = styled.div`
+  margin-left: auto;
+`
+
+const Circle = styled.div`
+  margin-right: 10px;
+  height: 10px;
+  width: 10px;
+  background-color: #dc3545;
+  border-radius: 50%;
+  display: inline-block;
 `
 
 
@@ -70,9 +92,12 @@ export const Accordion = (props) => {
 
         <AccordionWrapper>
             <AccordionHeader>
-                <VaccinationImg src={Vaccination} />
+                <BackgroundImg src={bloc.icon_name} />
                 <AccordionHeaderTitle>{bloc.title}</AccordionHeaderTitle>
-                <Button>Mark as done</Button>
+                <RightAlign>
+                    <Circle></Circle>
+                    <Button>Mark as done</Button>
+                </RightAlign>
             </AccordionHeader>
             <AccordionBody>
                 {arrayBody}
