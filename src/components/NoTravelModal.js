@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Modal, { ModalSection } from "@kiwicom/orbit-components/lib/Modal";
-import Alert from "@kiwicom/orbit-components/lib/icons/Alert";
+import {withRouter} from 'react-router-dom'
+import Modal, { ModalSection, ModalHeader, ModalFooter } from '@kiwicom/orbit-components/lib/Modal'
+import Alert from '@kiwicom/orbit-components/lib/icons/Alert'
 
 import { ButtonNext } from './ButtonNext'
 import { ButtonClose } from './ButtonClose'
@@ -20,23 +21,25 @@ const StyledModalSelection = styled(ModalSection)`
 `
 
 const StyledAlert = styled(Alert)`
-  width: 150px;
-  height: 150px;
-
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
 `
 
+export const NoTravelModal = withRouter(props => {
+  return (
+    <Modal>
+      <ModalHeader>
+        <StyledAlert color="critical" />
+      </ModalHeader>
 
-export const NoTravelModal = (props) => {
-    return (
-      <Modal>
-        <StyledAlert color='critical' />
-        <StyledModalSelection>
-          {DONT_TRAVEL_WARNING}
-        </StyledModalSelection>
-        <ButtonWrapper>
-            <ButtonClose onClick={props.setIsModalOpen}>Close</ButtonClose>
-            <ButtonNext>Next</ButtonNext>
-        </ButtonWrapper>
-      </Modal>
-    )
-}
+      <StyledModalSelection>{DONT_TRAVEL_WARNING}</StyledModalSelection>
+      <ModalFooter>
+      <ButtonWrapper>
+        <ButtonClose onClick={props.setIsModalOpen}>Close</ButtonClose>
+        <ButtonNext onClick={() => props.history.push('/dashboard/checklist')}>Next</ButtonNext>
+      </ButtonWrapper>
+      </ModalFooter>
+    </Modal>
+  )
+})
