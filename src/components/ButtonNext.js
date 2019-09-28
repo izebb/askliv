@@ -4,6 +4,7 @@ import Button from '@kiwicom/orbit-components/lib/Button'
 
 import arrow from '../assets/arrow.svg'
 
+
 const ButtonStyled = styled.span`
   font-size: 18px;
   border: none;
@@ -22,11 +23,11 @@ const Img = styled.img`
   margin-left: 4px;
 `
 
-export const ButtonNext = ({ children }) => {
+export const ButtonNext = (props) => {
   return (
     <Button>
       <ButtonStyled>
-        <span>{children}</span>
+        <span>{props.children}</span>
         <Img src={arrow} />
       </ButtonStyled>
     </Button>

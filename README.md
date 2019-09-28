@@ -1,74 +1,92 @@
-## AskLiv
-
-![AskLiv](logo.png)
+# GTH-Barcelona-AskLiv
+Project submission for the `Global Travel Hackathon in Barcelona, by askliv team`.
 
 **Allow people to be more confident when planning a trip.**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![AskLiv](logo.png)
 
-## Available Scripts
+## :earth_americas: Website
 
-In the project directory, you can run:
+askliv.app
 
-### `npm start`
+## :computer: Repository
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://github.com/izebb/askliv
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## :books: Description
 
-### `npm test`
+* Hackathon topic you used: 
+  * Accessibility 
+  * Community
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* The development tools used to build the project: 
+  * [Kiwi UI (orbit)](https://orbit.kiwi/), 
+  * [React](https://reactjs.org/), 
+  * [Firebase](https://firebase.google.com)
+  
+* SDKs used in the project;
+  * [Contentful](https://www.contentful.com/)
+  
+* APIs used in the project;
+  * [Contentful](https://www.contentful.com/)
 
-### `npm run build`
+* Any assets used in the project;
+  * [Unsplash](https://unsplash.com/): For website images
+  * [Noun Project](https://thenounproject.com): For icons
+  
+* Any libraries used in the project;
+  * [React](https://reactjs.org/): To build the interface
+  * [Moment](https://momentjs.com/): To handle the datepicker
+  * [Orbit](https://orbit.kiwi/): UI library
+  * [Contentful](https://www.contentful.com/): CMS to handle destinations, categories and questionaires
+  
+* Any components not created at the hackathon;
+  * Authentication
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :hugs: Maintainers
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+List all the team members. For example:
+* [Kevin James Parks - kevinjamesparks](https://github.com/kevinjamesparks)
+* [Gabriel Izebhigie - izebb](https://github.com/izebb)
+* [Djamal Sadaghiani - Djamal-Sadaghiani](https://github.com/Djamal-Sadaghiani)
+* [Ana Schwendler - anaschwendler](https://github.com/anaschwendler)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## :tada: Why is this so awesome?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Everyone knows someone that could benefit from a project that help show how to travel anywhere
+* The main goal of the tool i to include all people that were maybe not able to travel before
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :hammer_and_wrench: Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone the project:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```console
+$ git clone git@github.com:izebb/askliv.git
+```
 
-## Learn More
+2. Run the installation:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+$ npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Run the project locally:
 
-### Code Splitting
+```console
+$ npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Then your project should be live at: [localhost:3000](localhost:3000)
 
-### Analyzing the Bundle Size
+## :bulb: Devstack
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* For UX/UI we decided to use the Kiwi UI definitions
 
-### Making a Progressive Web App
+* For the app we used React
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* For the database we used Firebase
 
-### Advanced Configuration
+## :warning: Licence
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The code in this project is licensed under MIT license. By contributing to this project, you agree that your contributions will be licensed under its MIT license.

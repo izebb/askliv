@@ -19,6 +19,7 @@ import { Categories } from '../components/Categories'
 import { Questions } from '../components/Questions'
 import { Layout } from '../components/Layout'
 import Button from '@kiwicom/orbit-components/lib/Button'
+import { NoTravelModal } from '../components/NoTravelModal'
 
 const Image = styled.img`
   width: 150px;
@@ -48,9 +49,14 @@ const Title = styled(ModalHeader)`
   padding: 0;
 `
 export const QuestionairePage = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
+
   return (
     <Layout>
-      <Questions />
+      <Questions setIsModalOpen={setIsModalOpen}/>
+      {isModalOpen && (
+        <NoTravelModal setIsModalOpen={setIsModalOpen} />
+      )}
     </Layout>
   )
 }
