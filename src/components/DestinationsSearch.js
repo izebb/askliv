@@ -44,7 +44,6 @@ const InputWrapper = styled.div`
   margin-right: 10px;
   max-width: 250px;
   width: 100%;
-
 `
 
 const DateWrapper = styled(InputWrapper)`

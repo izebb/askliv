@@ -18,7 +18,6 @@ const Counter = styled.div`
 `
 const CounterSmall = styled.span``
 const CounterLarge = styled.span`
-  /* font-size: 24px; */
 `
 
 const ButtonWrapper = styled.div`
