@@ -54,6 +54,10 @@ export const getQuestionnaire = (entries, catgegoryId) => {
     return serializedQuestionnaire
 }
 
+export const getQuestionnaires = async () => {
+    return  getAllQuestionnaires(await getAllEntries())
+}
+
 export const getAllChecklistEntries = (entries, questionnaireId=null) => {
     if(questionnaireId === null) {
         // Get all blocs
