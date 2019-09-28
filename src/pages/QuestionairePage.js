@@ -53,7 +53,7 @@ export const QuestionairePage = () => {
 
   return (
     <Layout>
-      <Questions />
+      <Questions setIsModalOpen={setIsModalOpen}/>
       {isModalOpen && (
         <NoTravelModal setIsModalOpen={setIsModalOpen} />
       )}
