@@ -118,7 +118,7 @@ export const Categories = withRouter(({ data = [], history }) => {
         {categories.map(category => (
           <CategoriesWrapper>
             <Category onClick={() => setChecked(category.type)} isChecked={checked === category.type}>
-              <Input checked={checked === category.type} type="radio" name="categories" value={category.type} />
+              <Input onChange={() => setChecked(category.type)} checked={checked === category.type} type="radio" name="categories" value={category.type} />
               <CategoryImageWrapper>
                 <CategoryImage src={category.icon} />
               </CategoryImageWrapper>

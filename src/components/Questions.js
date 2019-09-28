@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {withRouter} from 'react-router-dom'
 import { get } from 'lodash'
 
 import { DestinationsSearch } from '../components/DestinationsSearch'
@@ -34,7 +35,7 @@ const Input  = styled.input`
   pointer-events; none;
 `;
 
-export const Questions = props => {
+export const Questions = withRouter(props => {
   const [answers, setAnswers] = React.useState([])
   const [question, setQuestion] = React.useState('')
   const [answered, setAnswered] = React.useState(null)
@@ -76,12 +77,12 @@ export const Questions = props => {
           )
         })}
         <ButtonWrapper>
-          <ButtonNext setIsModalOpen={setIsModalOpen}>Finish</ButtonNext>
+          <ButtonNext setIsModalOpen={setIsModalOpen} onClick={() => props.history.push('/dashboard/checklist') }>Finish</ButtonNext>
         </ButtonWrapper>
       </QuestionsWrapper>
     </Container>
   )
-}
+})
 
 const QuestionContainer = styled.div`
   background-color: #eee;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, BrowserRouter as Router, Route,Switch } from 'react-router-dom'
+import { Link, BrowserRouter as Router, Route,Switch, withRouter } from 'react-router-dom'
 
 import Logo from '../assets/purple_logo.png';
 import { Checklist } from '../components/Checklist'
@@ -76,12 +76,12 @@ const Content = styled.div`
   margin: 20px auto;
 `
 
-const ChecklistComponent = () => {
+const ChecklistComponent = withRouter(() => {
   const context = React.useContext(CategoriesContext)
   return (
     <Checklist questionnaireId={context.selectedCategory} />
   )
-}
+})
 
 export const DashboardPage = ({match}) => {
 

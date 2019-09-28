@@ -33,7 +33,7 @@ const MainButton = styled(Button)`
 
 export const ButtonNext = (props) => {
   return (
-    <MainButton>
+    <MainButton onClick={props.onClick}>
       <ButtonStyled>
         <span>{props.children}</span>
         <Img src={arrow} />
