@@ -10,7 +10,7 @@ const Container = styled.div`
 `
 
 const Image = styled.img`
-  width: 150px;
+  width: 120px;
 `
 
 const Content = styled.div`
