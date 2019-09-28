@@ -18,6 +18,9 @@ export const serializeAllEntries = (entries) => {
 
 export const serializeBloc = (bloc) => {
     const body = bloc.fields.body.content.map(bodyItem => {
+        if (bodyItem.nodeType === 'embedded-asset-block') {
+            return bodyItem.data.target.fields.file.url
+        }
         return bodyItem.content[0].value
     })
 
