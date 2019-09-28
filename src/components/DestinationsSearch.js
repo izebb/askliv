@@ -16,6 +16,14 @@ const Container = styled.div`
   flex-direction: column;
   margin-top: 100px;
 
+  .DateRangePicker{
+    width: 100%;
+  }
+
+  .DateRangePickerInput__withBorder{
+      width: 100%;
+  }
+
    .DateRangePickerInput__withBorder {
       border-radius: 5px;
   }
@@ -23,6 +31,7 @@ const Container = styled.div`
   .DateInput {
     background-color: transparent;
     border-bottom: none;
+    width: 40%;
   }
   .DateInput_input__focused {
       background: transparent;
@@ -31,7 +40,7 @@ const Container = styled.div`
 
    .DateInput_input {
     height: 44px;
-
+    background-color: transparent;
     padding: 0 15px;
     font-size: inherit;
     font-weight: 400;
@@ -63,7 +72,7 @@ export const DestinationsSearch = () => {
 
   return (
     <Container>
-      <Caption>Ask Liv about going to</Caption>
+      <Caption>Enter your destination</Caption>
       <FormWrapper>
         <InputWrapper>
           <InputField name="from" placeholder="From" />
@@ -73,7 +82,7 @@ export const DestinationsSearch = () => {
           <InputField name="to" placeholder="To" />
         </InputWrapper>
 
-        <DateWrapper    >
+        <DateWrapper>
           <DateRangePicker
             startDate={date.startDate}
             endDate={date.endDate}
