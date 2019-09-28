@@ -90,7 +90,7 @@ const Content = styled.div`
 
 const checklistComponent = () => {
   return (
-    <Checklist questionnaireId={'trust_safety'} />
+    <Checklist questionnaireId={'chronic_conditions'} />
   )
 }
 
