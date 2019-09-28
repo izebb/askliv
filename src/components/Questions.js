@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { get } from 'lodash'
 
 import { DestinationsSearch } from '../components/DestinationsSearch'
 import { ButtonNext } from './ButtonNext'
 import { ButtonPrev } from './ButtonPrev'
+import { getQuestionnaireByID, getQuestionnaire, getQuestionnaires } from '../utils/contentful/utils'
+import { CategoriesContext } from '../context/CategoriesContext'
 
 const Container = styled.form``
 
@@ -18,34 +21,62 @@ const Counter = styled.div`
   font-size: 20px;
 `
 const CounterSmall = styled.span``
-const CounterLarge = styled.span`
-`
+const CounterLarge = styled.span``
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `
 
-const QuestionsWrapper = styled.div`
-`
+const QuestionsWrapper = styled.div``
+const Input  = styled.input`
+  opacity: 0;
+  pointer-events; none;
+`;
 
-export const Questions = (props) => {
+export const Questions = props => {
+  const [answers, setAnswers] = React.useState([])
+  const [question, setQuestion] = React.useState('')
+  const [answered, setAnswered] = React.useState(null)
+  const context = React.useContext(CategoriesContext)
   const { setIsModalOpen } = props
+
+  React.useEffect(() => {
+    getQuestionnaires().then(response => {
+      const item = response.find(item => {
+        return get(item, 'fields.name', '').toLowerCase() === context.selectedCategory
+      })
+
+      if(item) {
+        const questions = get(item, 'fields.question.0.fields')
+        setAnswers(questions.answers)
+        setQuestion(questions.question)
+      }
+     
+    })
+  }, [])
+
+
+  if(!question) return null
 
   return (
     <Container>
-      <Counter>
-        <CounterLarge>1</CounterLarge> /<CounterSmall>1</CounterSmall>
-      </Counter>
-      <Title>What country are you going to?</Title>
+      <Title>{question}</Title>
       <QuestionsWrapper>
-        <Question>Antartica</Question>
-        <Question>Antartica</Question>
-        <Question>Antartica</Question>
-        <Question>Antartica</Question>
+        {answers.map(item => {
+          return (
+            <Question isChecked={answered === item} key={item} onClick={()  => setAnswered(item)}>
+              <Input 
+                name="answer" 
+                checked={answered === item} 
+                type="checkbox" 
+                value={answered} />
+              {item}
+            </Question>
+          )
+        })}
         <ButtonWrapper>
-          <ButtonPrev>Prev</ButtonPrev>
-          <ButtonNext setIsModalOpen={setIsModalOpen}>Next</ButtonNext>
+          <ButtonNext setIsModalOpen={setIsModalOpen}>Finish</ButtonNext>
         </ButtonWrapper>
       </QuestionsWrapper>
     </Container>
@@ -58,8 +89,13 @@ const QuestionContainer = styled.div`
   border-radius: 10px;
   font-size: 20px;
   margin-bottom: 20px;
+  
+  ${({isChecked})  => isChecked && ({
+    backgroundColor: 'green',
+    color: 'white'
+  })}
 `
 
-const Question = ({ children }) => {
-  return <QuestionContainer>{children}</QuestionContainer>
+const Question = ({ children, isChecked, onClick }) => {
+  return <QuestionContainer isChecked={isChecked} onClick={onClick}>{children}</QuestionContainer>
 }

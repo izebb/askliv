@@ -26,6 +26,10 @@ export const getAllSearchCategories = (entries) => {
     })
 }
 
+export const getCategories = async () => {
+    return getAllSearchCategories(await getAllEntries() )
+}
+
 export const getAllQuestionnaires = (entries) => {
     return entries.filter(entry => {
         return entry.contentType === 'questionnaire'
@@ -48,6 +52,10 @@ export const getQuestionnaire = (entries, catgegoryId) => {
         }
     })
     return serializedQuestionnaire
+}
+
+export const getQuestionnaires = async () => {
+    return  getAllQuestionnaires(await getAllEntries())
 }
 
 export const getAllChecklistEntries = (entries, questionnaireId=null) => {

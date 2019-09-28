@@ -14,6 +14,7 @@ import Globe from '../assets/globe.svg'
 import { DestinationsSearch } from '../components/DestinationsSearch'
 import { Categories } from '../components/Categories'
 import { Layout } from '../components/Layout'
+import { getCategories } from '../utils/contentful/utils'
 
 
 const Container = styled.div`
@@ -23,6 +24,14 @@ const Heading = styled.h2`
   font-weight: 600;
 `
 export const CategoriesPage = () => {
+  const [categories, setCategories] = React.useState([])
+  React.useEffect(() => {
+    getCategories()
+    .then (response => {
+      setCategories(response)
+      console.log(response)
+    })
+  }, [])
   return (
     <Layout title="How can I support you?">
         <Categories  />

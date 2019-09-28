@@ -7,20 +7,7 @@ import { Checklist } from '../components/Checklist'
 import Vaccination from '../assets/vaccination.svg';
 import Pregnancy from '../assets/pregnancy_checklist.svg';
 
-const height = 150
-
-// const categories = [
-//   {
-//     icon: Vaccination,
-//     title: 'Vaccination',
-//     type: 'vaccination',
-//   },
-//   {
-//     icon: Pregnancy,
-//     title: 'Pregnancy',
-//     type: 'pregnancy'
-//   }
-// ]
+const height = 150;
 
 const Topbar = styled.nav`
   height: ${height}px;
