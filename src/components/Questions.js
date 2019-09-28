@@ -29,7 +29,9 @@ const ButtonWrapper = styled.div`
 const QuestionsWrapper = styled.div`
 `
 
-export const Questions = () => {
+export const Questions = (props) => {
+  const { setIsModalOpen } = props
+
   return (
     <Container>
       <Counter>
@@ -43,7 +45,7 @@ export const Questions = () => {
         <Question>Antartica</Question>
         <ButtonWrapper>
           <ButtonPrev>Prev</ButtonPrev>
-          <ButtonNext>Next</ButtonNext>
+          <ButtonNext setIsModalOpen={setIsModalOpen}>Next</ButtonNext>
         </ButtonWrapper>
       </QuestionsWrapper>
     </Container>
