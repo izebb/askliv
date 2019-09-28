@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import {withRouter} from 'react-router-dom'
+import { snakeCase } from 'lodash'
 import LogoPurple from '../assets/purple_logo.png'
 import arrow from '../assets/arrow.svg'
-
 import Diabilities from '../assets/diabilities.svg'
 import Allegies from '../assets/allegies.svg'
 import Pregnancy from '../assets/pregnancy.svg'
@@ -15,6 +15,7 @@ import Globe from '../assets/globe.svg'
 import { DestinationsSearch } from '../components/DestinationsSearch'
 import Button from '@kiwicom/orbit-components/lib/Button'
 import { ButtonNext } from './ButtonNext'
+import { CategoriesContext } from '../context/CategoriesContext'
 
 const Image = styled.img`
   width: 150px;
@@ -78,59 +79,43 @@ const CategorTitle = styled.div`
 `
 
 const ButtonWrapper = styled.div`
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const Input = styled.input`
   opacity: 0;
 `
 
-const catgories = [
-  {
-    icon: Diabilities,
-    title: 'Disabilities',
-    type: 'disabilities'
-  },
-  {
-    icon: Allegies,
-    title: 'Allergies',
-    type: 'allergies'
-  },
-  {
-    icon: Pregnancy,
-    title: 'Pregnancy',
-    type: 'pregnancy'
-  },
-  {
-    icon: Chronic,
-    title: 'Chronic conditions',
-    type: 'chronic_conditions'
-  },
-  {
-    icon: TrustSafety,
-    title: 'Trust and safty',
-    type: 'trust_and_safty'
-  },
-  {
-    icon: Globe,
-    title: 'Convenience',
-    type: 'convenience'
-  },
-  {
-    icon: Information,
-    title: 'General information',
-    type: 'general_information'
-  }
-]
+const iconmaps = {
+  convenience: Globe,
+  disabilities: Diabilities,
+  allergies: Allegies,
+  chronic_conditions: Chronic,
+  trust_safety: TrustSafety,
+  pregnancy: Pregnancy,
+  general_information: Information
+}
 
-export const Categories = () => {
+export const Categories = withRouter(({ data, history }) => {
+  const context = React.useContext(CategoriesContext)
   const [checked, setChecked] = React.useState()
+
+  let categories = data.map(title => ({
+    title,
+    icon: iconmaps[snakeCase(title)],
+    type: snakeCase(title)
+  }))
+
+  const handleClick = () => {
+    context.setSelectedCategory(checked)
+    history.push('/questionnaire')
+  }
 
   return (
     <>
       <Container>
-        {catgories.map(category => (
+        {categories.map(category => (
           <CategoriesWrapper>
             <Category onClick={() => setChecked(category.type)} isChecked={checked === category.type}>
               <Input checked={checked === category.type} type="radio" name="categories" value={category.type} />
@@ -143,8 +128,8 @@ export const Categories = () => {
         ))}
       </Container>
       <ButtonWrapper>
-          <ButtonNext>Next </ButtonNext>
-        </ButtonWrapper>
+        <ButtonNext onClick={handleClick}>Next </ButtonNext>
+      </ButtonWrapper>
     </>
   )
-}
+})
