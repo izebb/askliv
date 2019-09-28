@@ -78,7 +78,7 @@ const options = [
 
 export const DestinationsSearch = withRouter(({history}) => {
   const context = React.useContext(SearchContext);
-  const [date, setDate] = React.useState(context.selectedDates)
+  const [date ={}, setDate] = React.useState(context.selectedDates)
   const [focusedInput, setFocusedInput] = React.useState()
   const [selectedOption, setSelectedOption] = React.useState(context.selectedOption)
 
