@@ -49,40 +49,13 @@ const Title = styled(ModalHeader)`
   padding: 0;
 `
 export const QuestionairePage = () => {
-  const [open, setOpen] = React.useState(true)
   const [isModalOpen, setIsModalOpen] = React.useState(false)
-  console.log(setIsModalOpen)
 
   return (
     <Layout>
-      {open && (
-        <Modal onClose={() => setOpen(false)}>
-          <ModalHeader>Login</ModalHeader>
-          <ModalSection>
-            <form>
-              <InputWrapper>
-                <InputField name="firstName" placeholder="First name" />
-              </InputWrapper>
-              <InputWrapper>
-                <InputField name="lastName" placeholder="Last name" />
-              </InputWrapper>
-              <InputWrapper>
-                <InputField name="email" type="email" placeholder="Email" />
-              </InputWrapper>
-              <InputWrapper>
-                <InputField name="password" type="password" placeholder="Password" />
-              </InputWrapper>
-              <Button>Sign up</Button>
-              <PasswordWrapper>
-                Already have an account? <Link path="/login">Login</Link>
-              </PasswordWrapper>
-            </form>
-          </ModalSection>
-        </Modal>
-      )}
-      <Questions setIsModalOpen={setIsModalOpen}/>
+      <Questions />
       {isModalOpen && (
-        <NoTravelModal setIsModalOpen={setIsModalOpen}/>
+        <NoTravelModal setIsModalOpen={setIsModalOpen} />
       )}
     </Layout>
   )

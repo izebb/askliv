@@ -75,11 +75,7 @@ export const DestinationsSearch = () => {
       <Caption>Enter your destination</Caption>
       <FormWrapper>
         <InputWrapper>
-          <InputField name="from" placeholder="From" />
-        </InputWrapper>
-
-        <InputWrapper>
-          <InputField name="to" placeholder="To" />
+          <InputField name="to" placeholder="Choose your destination - malaysia, kenya" />
         </InputWrapper>
 
         <DateWrapper>
