@@ -71,7 +71,7 @@ const Circle = styled.div`
   margin-right: 10px;
   height: 10px;
   width: 10px;
-  background-color: #dc3545;
+  background-color: ${ props => props.color };
   border-radius: 50%;
   display: inline-block;
 `
@@ -88,6 +88,9 @@ export const Accordion = (props) => {
                 return <p>{bodyEntity}</p>
             }
         })
+    const colors = ['#dc3545', '#ffff00', '#008000']
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
     return (
 
         <AccordionWrapper>
@@ -95,7 +98,7 @@ export const Accordion = (props) => {
                 <BackgroundImg src={bloc.icon_name} />
                 <AccordionHeaderTitle>{bloc.title}</AccordionHeaderTitle>
                 <RightAlign>
-                    <Circle></Circle>
+                    <Circle color={color}></Circle>
                     <Button>Mark as done</Button>
                 </RightAlign>
             </AccordionHeader>
