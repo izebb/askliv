@@ -94,7 +94,7 @@ const checklistComponent = () => {
   )
 }
 
-export const DashboardPage = () => {
+export const DashboardPage = ({match}) => {
 
   return (
     <>
@@ -107,10 +107,10 @@ export const DashboardPage = () => {
 
         <Navigation>
           <List>
-            <StyledLink isActive to="/dashboard/checklist">Checklist</StyledLink>
+            <StyledLink isActive={match.path === '/dashboard/checklist'} to="/dashboard/checklist">Checklist</StyledLink>
           </List>
           <List>
-            <StyledLink to="/dashboard/info">Info</StyledLink>
+            <StyledLink isActive={match.path === '/dashboard/info'} to="/dashboard/info">Info</StyledLink>
           </List>
         </Navigation>
       </Topbar>
