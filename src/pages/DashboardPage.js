@@ -4,8 +4,22 @@ import { Link, BrowserRouter as Router, Route,Switch } from 'react-router-dom'
 
 import Logo from '../assets/purple_logo.png';
 import Vaccination from '../assets/vaccination.svg';
+import Pregnancy from '../assets/pregnancy_checklist.svg';
 
 const height = 150
+
+const categories = [
+  {
+    icon: Vaccination,
+    title: 'Vaccination',
+    type: 'vaccination'
+  },
+  {
+    icon: Pregnancy,
+    title: 'Pregnancy',
+    type: 'pregnancy'
+  }
+]
 
 const Topbar = styled.nav`
   height: ${height}px;
@@ -67,19 +81,17 @@ const StyledLink = styled(Link)`
     }))}
   }
 
-  
 `
 
 const H1 = styled.h1`
   font-weight: 300;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `
 const Content = styled.div`
   padding-top: ${height + 10}px;
   max-width: 900px;
   margin: 20px auto;
-  
 `
 
 export const DashboardPage = () => {
@@ -146,7 +158,7 @@ const No  = styled.div`
     opacity: 0.2;
 `;
 
-const VaccinationImg = styled.img`
+const BackgroundImg = styled.img`
     width: 50px;
     width: 110px;
     left: -20px;
@@ -163,28 +175,36 @@ const Button = styled.button`
   border: none;
   padding: 5px 15px;
   font-weight: 600;
-`;
+`
 
-const Accordion = ({ title}) => {
+const TripDate = styled.div`
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 50px;
+`
+;
+
+
+
+const Accordion = ({category}) => {
+
   return (
     <AccordionWrapper>
       <AccordionHeader>
-        <VaccinationImg src={Vaccination} />
-        <AccordionHeaderTitle>{title}</AccordionHeaderTitle>
+        <BackgroundImg src={category.icon} />
+        <AccordionHeaderTitle>{category.title}</AccordionHeaderTitle>
         <Button>Mark as done</Button>
       </AccordionHeader>
       <AccordionBody>
 
     <p>
-        Est cupidatat exercitation ad eiusmod proident. Aute labore velit ea aliquip veniam est Lorem tempor tempor mollit. Cillum veniam reprehenderit cupidatat aliquip.
-    </p>
-          
-    <p>
-    Ad velit cillum pariatur ex cillum aliquip quis. Incididunt duis aliqua elit deserunt anim non non elit commodo nulla. Nisi pariatur est Lorem tempor mollit nisi proident aute exercitation consequat. Dolor non labore dolor eu aute esse irure magna fugiat. Cupidatat duis irure cillum adipisicing ea ullamco. Laboris proident nostrud minim consequat cillum.
+      Est cupidatat exercitation ad eiusmod proident. Aute labore velit ea aliquip veniam est Lorem tempor tempor mollit. Cillum veniam reprehenderit cupidatat aliquip.
     </p>
     <p>
-
-    Qui ullamco mollit enim enim commodo id. Laborum reprehenderit incididunt in consectetur irure deserunt voluptate labore duis. Velit Lorem nisi laboris amet sint laboris.
+      Ad velit cillum pariatur ex cillum aliquip quis. Incididunt duis aliqua elit deserunt anim non non elit commodo nulla. Nisi pariatur est Lorem tempor mollit nisi proident aute exercitation consequat. Dolor non labore dolor eu aute esse irure magna fugiat. Cupidatat duis irure cillum adipisicing ea ullamco. Laboris proident nostrud minim consequat cillum.
+    </p>
+    <p>
+      Qui ullamco mollit enim enim commodo id. Laborum reprehenderit incididunt in consectetur irure deserunt voluptate labore duis. Velit Lorem nisi laboris amet sint laboris.
     </p>
       </AccordionBody>
     </AccordionWrapper>
@@ -193,8 +213,10 @@ const Accordion = ({ title}) => {
 
 const Checklist = () => (
   <>
-  <H1>Get Ready for your trip to Malaysia ✈️</H1>
-          <Accordion  title="Vaccination"/>
-          <Accordion title="Pregnancy" />
-          </>
+    <H1>Get Ready for your trip to Malaysia 🇲🇾✈️</H1>
+    <TripDate>01.12.2019 - 21.12.2019</TripDate>
+    {categories.map(category => (
+      <Accordion  category={category} />
+    ))}
+  </>
 )
