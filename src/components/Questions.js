@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { DestinationsSearch } from '../components/DestinationsSearch'
 import { ButtonNext } from './ButtonNext'
+import { ButtonPrev } from './ButtonPrev'
 
 const Container = styled.form``
 
@@ -41,7 +42,7 @@ export const Questions = () => {
         <Question>Antartica</Question>
         <Question>Antartica</Question>
         <ButtonWrapper>
-          <ButtonNext>Prev</ButtonNext>
+          <ButtonPrev>Prev</ButtonPrev>
           <ButtonNext>Next</ButtonNext>
         </ButtonWrapper>
       </QuestionsWrapper>
