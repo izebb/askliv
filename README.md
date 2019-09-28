@@ -15,6 +15,8 @@ https://github.com/izebb/askliv
 
 ## :books: Description
 
+Current online platforms are not catering to a large group of people which turn to offline vendors or do not travel at all because of missing accessibility. Our project, askLiv aggregates and makes travel advise actionable & relevant based on user specific needs. Solving real user problems and making travel more accessible by providing an easy to use content platform.
+
 * Hackathon topic you used: 
   * Accessibility 
   * Community
