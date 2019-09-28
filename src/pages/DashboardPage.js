@@ -1,26 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, BrowserRouter as Router, Route,Switch } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 
-import Logo from '../assets/purple_logo.png';
-import { Checklist } from '../components/Checklist'
-import Vaccination from '../assets/vaccination.svg';
-import Pregnancy from '../assets/pregnancy_checklist.svg';
+import Logo from '../assets/purple_logo.png'
+import Vaccination from '../assets/vaccination.svg'
+import { Info } from './Info'
 
 const height = 150
-
-// const categories = [
-//   {
-//     icon: Vaccination,
-//     title: 'Vaccination',
-//     type: 'vaccination',
-//   },
-//   {
-//     icon: Pregnancy,
-//     title: 'Pregnancy',
-//     type: 'pregnancy'
-//   }
-// ]
 
 const Topbar = styled.nav`
   height: ${height}px;
@@ -67,7 +53,7 @@ const StyledLink = styled(Link)`
   position: relative;
   padding: 20px 10px;
 
-  &:before {
+  &.is-active {
     height: 5px;
     width: 100%;
     content: ' ';
@@ -77,11 +63,11 @@ const StyledLink = styled(Link)`
     left: 0;
     background-color: #381a57;
     border-radius: 5px 5px 0 0;
-    ${(({isActive}) => isActive && ({
-      opacity: 1
-    }))}
+    ${({ isActive }) =>
+      isActive && {
+        opacity: 1
+      }}
   }
-
 `
 
 const Content = styled.div`
@@ -107,21 +93,112 @@ export const DashboardPage = () => {
 
         <Navigation>
           <List>
-            <StyledLink isActive to="/dashboard/checklist">Checklist</StyledLink>
+            <StyledLink  activeClassName='is-active'to="/dashboard/info">Info</StyledLink>
           </List>
           <List>
-            <StyledLink to="/dashboard">Info</StyledLink>
+            <StyledLink activeClassName='is-active' to="/dashboard/checklist">
+              Checklist
+            </StyledLink>
           </List>
         </Navigation>
       </Topbar>
       <Content>
-        <Router>
           <Switch>
-            <Route exact path='/dashboard/checklist' component={checklistComponent} />
-            <Route exact path='/dashboard' component={checklistComponent} />
-            </Switch>
-        </Router>
+            <Route exact path="/dashboard/checklist" component={Checklist} />
+            <Route exact path="/dashboard/info" component={Info} />
+          </Switch>
       </Content>
     </>
   )
 }
+
+const AccordionHeader = styled.div`
+  background-color: #f4f4f4;
+  padding: 20px 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+`
+const AccordionHeaderTitle = styled.div`
+  padding: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  position: relative;
+`
+const AccordionBody = styled.div`
+  border-top: 2px solid #ddd;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+`
+const AccordionWrapper = styled.div`
+  margin-bottom: 20px;
+`
+const No = styled.div`
+  position: absolute;
+  pointer-events: none;
+  font-size: 120px;
+  font-weight: 900;
+  top: -30px;
+  left: -10px;
+  opacity: 0.2;
+`
+
+const VaccinationImg = styled.img`
+  width: 50px;
+  width: 110px;
+  left: -20px;
+  position: absolute;
+  bottom: -30px;
+  opacity: 0.12;
+`
+
+const Button = styled.button`
+  margin-left: auto;
+  background: #ddd;
+  border-radius: 1em;
+  font-size: 15px;
+  border: none;
+  padding: 5px 15px;
+  font-weight: 600;
+`
+
+const Accordion = ({ title }) => {
+  return (
+    <AccordionWrapper>
+      <AccordionHeader>
+        <VaccinationImg src={Vaccination} />
+        <AccordionHeaderTitle>{title}</AccordionHeaderTitle>
+        <Button>Mark as done</Button>
+      </AccordionHeader>
+      <AccordionBody>
+        <p>
+          Est cupidatat exercitation ad eiusmod proident. Aute labore velit ea aliquip veniam est Lorem tempor tempor
+          mollit. Cillum veniam reprehenderit cupidatat aliquip.
+        </p>
+
+        <p>
+          Ad velit cillum pariatur ex cillum aliquip quis. Incididunt duis aliqua elit deserunt anim non non elit
+          commodo nulla. Nisi pariatur est Lorem tempor mollit nisi proident aute exercitation consequat. Dolor non
+          labore dolor eu aute esse irure magna fugiat. Cupidatat duis irure cillum adipisicing ea ullamco. Laboris
+          proident nostrud minim consequat cillum.
+        </p>
+        <p>
+          Qui ullamco mollit enim enim commodo id. Laborum reprehenderit incididunt in consectetur irure deserunt
+          voluptate labore duis. Velit Lorem nisi laboris amet sint laboris.
+        </p>
+      </AccordionBody>
+    </AccordionWrapper>
+  )
+}
+
+const Checklist = () => (
+  <>
+    <H1>Get Ready for your trip to Malaysia ✈️</H1>
+    <Accordion title="Vaccination" />
+    <Accordion title="Pregnancy" />
+  </>
+)
